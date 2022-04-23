@@ -48,7 +48,7 @@ class testCredentials(unittest.TestCase):
             test_credentials.save_credentials()
             self.assertEqual(len(Credentials.myCredentials),2)
 
-    def test_find_user_by_app_name(self):
+    def test_find_login_by_app_name(self):
             self.newCredentials.save_credentials()
             test_credentials = Credentials("Pinterest", "Sam","Sam123")
             test_credentials.save_credentials()
@@ -57,12 +57,24 @@ class testCredentials(unittest.TestCase):
             self.assertEqual(found_credentials.app_password,test_credentials.app_password)
 
 
-    # def test_credentials_exists(self):
-    #     self.newCredentials.save_credentials()
-    #     test_credentials = Credentials("Pinterest", "Sam","Sam123")
-    #    test_credentials.save_credentials()
-    #    credentials_exists = Credentials.credentials_exist("Joe")
-    #     self.assertTrue(credentials_exists)
+    def test_login_exists(self):
+            self.newCredentials.save_credentials()
+            test_login = Credentials("Pinterest", "Sam","Sam123")
+            test_login.save_credentials()
+            
+            login_exists = Credentials.login_exists("Pinterest", "Sam","Sam123")
+            self.assertTrue(login_exists)
+
+    def test_display_all_logins(self):
+        self.assertEqual(Credentials.display_credentials(),Credentials.myCredentials)
+
+    def test_show_login(self):
+        '''
+        method to return a list of all saved logins
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.myCredentials)
+
+    
 
 
 
