@@ -30,6 +30,15 @@ class testCredentials(unittest.TestCase):
             self.newCredentials.save_credentials()
             test_cresentials = Credentials("Twitter","Martin","Martin123") # new credential
 
+    def test_save_credentials(self):
+        '''
+        test_save_user test case to test if the user object is saved into
+         the user list
+        '''
+        self.newCredentials.save_credentials() # saving the new user
+        self.assertEqual(len(Credentials.myCredentials),1)
+
+
 
 if __name__ ==  '__main__':
     unittest.main()
