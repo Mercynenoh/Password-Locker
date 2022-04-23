@@ -39,13 +39,13 @@ def create_credentials(app_name, app_username, app_password):
     Function to create a new account
     '''
     newCredentials = Credentials(app_name, app_username, app_password)
-    return myCredentials
+    return newCredentials
 
 def save_credentials(credentials):
     '''
     Function to save user
     '''
-    newCredentials.save_credentials()
+    credentials.save_credentials()
 
 def delete_logins(newCredentials):
     '''
@@ -91,7 +91,6 @@ def main():
                     username = input()
 
                     # print(" "*4 + "*the username contains alphabetical letters only and no spaces*")
-                    
 
                     print(' Please enter your password\n')
                     password = input()
@@ -99,7 +98,6 @@ def main():
                     save_user(create_user(username, password))
                    
                     print(f"New User {username}  has been created")
-                    
 
                 if my_input =="LO":
                     print("Already have an account? Sign in\n")
@@ -115,11 +113,27 @@ def main():
                 
                     print("\nUse these short codes to create new credentials: \n CC: create new credentials \n FC: find a credential \n DC: delete a credential \n SC: see all credentials \n LO: log out")
                      
-                     my_credentials = input().upper()
+                my_credentials = input().upper()
 
-                if my_credentials = "CC"
-                print('')
-                if 
+                if my_credentials == "CC":
+                    print('PLease Enter new credentials\n')
+                    
+                    print("Application name e.g facebook")
+                    app_name = input()
+
+                    print ('Application username')
+                    app_username = input()
+
+                    print ("Application Password")
+                    app_password = input()
+
+                    save_credentials(create_credentials(app_name, app_username, app_password))
+                    
+                    print(f"New Credentials {app_name} {app_username} {app_password}  have been created")
+                    break
+
+
+                
 
 
 
