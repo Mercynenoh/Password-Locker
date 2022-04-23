@@ -6,6 +6,7 @@ class User:
              self.username = username
              self.password = password
 
-        
+        def save_user(self):
+             User.myUser.append(self)
 
   

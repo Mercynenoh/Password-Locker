@@ -20,3 +20,14 @@ class testUser(unittest.TestCase):
 
         self.assertEqual(self.newUser.username,"Mercy")
         self.assertEqual(self.newUser.password,"Mercy123")
+
+    def test_save_user(self):
+        '''
+        test_save_contact test case to test if the contact object is saved into
+         the contact list
+        '''
+        self.newUser.save_user() # saving the new contact
+        self.assertEqual(len(User.myUser),1)
+
+if __name__ ==  '__main__':
+    unittest.main()
