@@ -14,8 +14,20 @@ class User:
 
         @classmethod
         def find_by_username(cls, username):
-              for user in cls.myUser:
-                 if user.username == username:
+                for user in cls.myUser:
+                  if user.username == username:
                     return user
+
+        @classmethod
+        def user_exist(cls,username):
+                for user in cls.myUser:
+                  if user.username == username:
+                    return True
+
+                return false
+
+        @classmethod
+        def display_users(cls):
+                return cls.myUser
 
   
