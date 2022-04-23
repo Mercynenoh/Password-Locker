@@ -23,5 +23,13 @@ class testCredentials(unittest.TestCase):
         self.assertEqual(self.newCredentials.app_username,"Martin")
         self.assertEqual(self.newCredentials.app_password,"Martin123")
 
+    def test_delete_logins(self):
+            '''
+            test_delete_logins to test if we can remove a login from our login list
+            '''
+            self.newCredentials.save_credentials()
+            test_cresentials = Credentials("Twitter","Martin","Martin123") # new credential
+
+
 if __name__ ==  '__main__':
     unittest.main()
