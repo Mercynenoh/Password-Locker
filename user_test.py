@@ -64,6 +64,12 @@ class testUser(unittest.TestCase):
 
     def test_display_all_users(self):
         self.assertEqual(User.display_users(), User.myUser)
+
+    def test_copy_username(self):
+        self.newUser.save_user()
+        User.copy_username("Joe")
+
+        self.assertEqual(self.newUser.username, pyperclip.paste)
     
 
 if __name__ ==  '__main__':
