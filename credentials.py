@@ -14,3 +14,9 @@ class Credentials:
 
     def delete_logins(self):
              Credentials.myCredentials.remove(self)
+
+    @classmethod
+    def find_by_app_name(cls, app_name):
+            for credentials in cls.myCredentials:
+                if credentials.app_name == app_name:
+                    return credentials

@@ -48,6 +48,22 @@ class testCredentials(unittest.TestCase):
             test_credentials.save_credentials()
             self.assertEqual(len(Credentials.myCredentials),2)
 
+    def test_find_user_by_app_name(self):
+            self.newCredentials.save_credentials()
+            test_credentials = Credentials("Pinterest", "Sam","Sam123")
+            test_credentials.save_credentials()
+
+            found_credentials = Credentials.find_by_app_name("Pinterest")
+            self.assertEqual(found_credentials.app_password,test_credentials.app_password)
+
+
+    # def test_credentials_exists(self):
+    #     self.newCredentials.save_credentials()
+    #     test_credentials = Credentials("Pinterest", "Sam","Sam123")
+    #    test_credentials.save_credentials()
+    #    credentials_exists = Credentials.credentials_exist("Joe")
+    #     self.assertTrue(credentials_exists)
+
 
 
 if __name__ ==  '__main__':
