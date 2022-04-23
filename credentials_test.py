@@ -38,6 +38,16 @@ class testCredentials(unittest.TestCase):
         self.newCredentials.save_credentials() # saving the new user
         self.assertEqual(len(Credentials.myCredentials),1)
 
+    def test_save_multiple_credentials(self):
+            '''
+            test_save_multiple_user to check if we can save multiple users
+            objects to our contact_list
+            '''
+            self.newCredentials.save_credentials()
+            test_credentials = Credentials("Pinterest", "Sam","Sam123") # new contact
+            test_credentials.save_credentials()
+            self.assertEqual(len(Credentials.myCredentials),2)
+
 
 
 if __name__ ==  '__main__':
