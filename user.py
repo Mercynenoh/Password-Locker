@@ -13,17 +13,17 @@ class User:
              User.myUser.remove(self)
 
         @classmethod
-        def find_by_username(cls, username):
+        def find_by_username(cls, username,password):
                 for user in cls.myUser:
-                  if user.username == username:
+                  if user.username == username and password:
                     return user
 
         @classmethod
-        def user_exist(cls,username):
+        def user_exist(cls,username, password):
                 for user in cls.myUser:
-                  if user.username == username:
+                  if user.username == username and password:
                     return True
-
+                   
                 return false
 
         @classmethod

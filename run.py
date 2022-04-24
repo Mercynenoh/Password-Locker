@@ -22,11 +22,11 @@ def delete_user(user):
     '''
     user.delete_user()
 
-def find_user(username):
+def find_user(username, password):
     '''
     Function that finds a contact by number and returns the contact
     '''
-    return User.find_by_username(username)
+    return User.find_by_username(username, password)
 
 def display_user():
     '''
@@ -79,7 +79,9 @@ def main():
     current_user= input ('What is your name?\n')
     print(f'\n Hello {current_user},')
     while True:
-                print("Use these short codes for navigation: \n CA - Create Account \n LO - Log In \n DA - Delete your account \n EX - Exit ")
+                print("Use these short codes for navigation: \n ca - Create Account \n li - Log In ")
+               
+                
 
                 my_input = input().upper()
 
@@ -97,40 +99,123 @@ def main():
 
                     save_user(create_user(username, password))
                    
-                    print(f"New User {username}  has been created")
+                    print(f"New User {username}  has been created\n Please type 'li' to Log in")
+                          
+                   
 
-                if my_input =="LO":
+                elif my_input =="LI":
                     print("Already have an account? Sign in\n")
                     print("-"*10)
 
                     print("Enter your username")
-                    username = input().strip(' ').capitalize()
+                    username = input().strip(' ')
                     print("Enter your password")
                     password = input().strip(' ')
-
-                    print("What would you like to do?")
-                else:
-                
+                    if find_user(username, password):
+                        print("Welcome back")
+                    else:
+                        print('Ooops! Cannot find account.')
+                       
+   
+                if find_user(username, password) and my_input== "LI":  
                     print("\nUse these short codes to create new credentials: \n CC: create new credentials \n FC: find a credential \n DC: delete a credential \n SC: see all credentials \n LO: log out")
                      
                 my_credentials = input().upper()
 
                 if my_credentials == "CC":
-                    print('PLease Enter new credentials\n')
+                        print('PLease Enter new credentials\n')
                     
-                    print("Application name e.g facebook")
-                    app_name = input()
+                        print("Application name e.g facebook")
+                        app_name = input()
 
-                    print ('Application username')
-                    app_username = input()
+                        print ('Application username')
+                        app_username = input()
+                        break
 
-                    print ("Application Password")
-                    app_password = input()
+                #     print(f"\nDo you already have a password for your account on {app_name}? (Y/N)")
+                #     has_password = input().upper()
+                # if has_password == 'Y':
+                #     print(f"Enter your {app_name} password")
+                #     app_password = input()
 
-                    save_credentials(create_credentials(app_name, app_username, app_password))
+                #     save_credentials(create_credentials(app_name, app_username, app_password))
                     
-                    print(f"New Credentials {app_name} {app_username} {app_password}  have been created")
-                    break
+                #     print(f"New Credentials for \n appname:{app_name} \n username:{app_username} \npassword:{app_password}  have been created")
+                
+                # elif has_password == 'N':
+               
+                #     print("Would you like a system generated password? (T/F)")
+                #     gen_pass = input().upper()
+                # if gen_pass == 'T':
+     
+                #     passwordLength = int(10)
+                
+                                     
+                #     account_password = generate_a_password 
+                #     print(f"Password generated is {account_password}")  
+                #     save_credentials(create_credentials(app_name, app_username, account_password))
+                #     print(f"Account credentials for your {app_name} account have been successfully saved.\n") 
+                #     continue 
+                #     break  
+                # elif my_credentials== "FC":
+                #     print('Enter the application you\'d like to find')
+                #     search_app = input()
+                # if login_exist(search_app):
+                #     search_credential = login_exists(search_app)
+                #     print(f"\nApplication name: {search_credential.app_name}, \n username: {search_credential.aapp_username} \n password: {search_credential.account_password}")
+
+                # else:
+                #     print(f"\nThe credentials for {searched_application} don't exist.")
+
+                # if my_credentials== 'DC':
+                #     print("Application name:")
+                #     print(" "*4 + "*eg. Instagram/Tinder*")
+                #       app_name = input().capitalize()
+                            
+                # if login_exits(app_name):
+                #     delete_logins(delete_logins(app_name))
+                #     print(f"\nCredentials for {app_name} have been successfully deleted")
+
+                
+                # if my_credentials== 'DA':
+                #     print("Enter your username")
+                #     username = input().capitalize()
+                #     print("Enter your password")
+                #     login_password = input()
+
+                # if user_exists(username, login_password):
+                #     delete_user(find_by_number(username))
+                #     print(f"\nYour account has been successfully deleted.\n")
+
+
+
+
+
+                # if my_credentials == "LO":
+                #     print("It's sad to see you leave, come back again")
+                    
+                #     break
+                # else:
+                #     print("I really didn't get that. Please use the short codes")                                                        
+                    
+                    
+
+                
+
+                # if my_credentials == "FC":
+                #     print("Enter the appname you want to search for")
+
+                #     search_name = input()
+                # if check_existing_names(search_name):
+                #     search_name = find_by_app_name(search_name)
+                #     print(f"{search_name.app_name}")
+                #     print('-' * 20)
+
+                #     print(f"username.......{search_name.app_name}")
+                #     print(f"Email address.......{search_name.app_password}")
+                # else:
+                #     print("That account does not exist")
+                #     break
 
 
                 

@@ -52,14 +52,14 @@ class testUser(unittest.TestCase):
         test_user = User("Joe", "Joe123")
         test_user.save_user()
 
-        found_user = User.find_by_username("Joe")
+        found_user = User.find_by_username("Joe", "Joe123")
         self.assertEqual(found_user.password,test_user.password)
 
     def test_user_exists(self):
         self.newUser.save_user()
         test_user = User("Joe","Joe123")
         test_user.save_user()
-        user_exists = User.user_exist("Joe")
+        user_exists = User.user_exist("Joe", "Joe123")
         self.assertTrue(user_exists)
 
     def test_display_all_users(self):
