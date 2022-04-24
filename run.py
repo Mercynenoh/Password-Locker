@@ -99,14 +99,14 @@ def main():
 
                     save_user(create_user(username, password))
                    
-                    print(f"New User {username}  has been created\n Please type 'li' to Log in")
+                    print(f"New User {username}  has been created\n proceed to log in")
+                    continue
                           
                    
 
                 elif my_input =="LI":
-                    print("Already have an account? Sign in\n")
-                    print("-"*10)
-
+                    print('Log in to your account')
+                    print('-'*10)
                     print("Enter your username")
                     username = input().strip(' ')
                     print("Enter your password")
@@ -115,33 +115,36 @@ def main():
                         print("Welcome back")
                     else:
                         print('Ooops! Cannot find account.')
+                
+                else:
+                    print('You have entered the wrong navigation short-cut')
+                    continue
                        
    
-                if find_user(username, password) and my_input== "LI":  
+                if find_user(username, password):  
                     print("\nUse these short codes to create new credentials: \n CC: create new credentials \n FC: find a credential \n DC: delete a credential \n SC: see all credentials \n LO: log out")
                      
                 my_credentials = input().upper()
 
                 if my_credentials == "CC":
-                        print('PLease Enter new credentials\n')
+                    print('PLease Enter new credentials\n')
                     
-                        print("Application name e.g facebook")
-                        app_name = input()
+                    print("Application name e.g facebook")
+                    app_name = input()
 
-                        print ('Application username')
-                        app_username = input()
-                        break
+                    print ('Application username')
+                    app_username = input()
 
-                #     print(f"\nDo you already have a password for your account on {app_name}? (Y/N)")
-                #     has_password = input().upper()
-                # if has_password == 'Y':
-                #     print(f"Enter your {app_name} password")
-                #     app_password = input()
+                    print(f"\nDo you already have a password for your account on {app_name}? (Y/N)")
+                    has_password = input().upper()
+                    if has_password == 'Y':
+                    print(f"Enter your {app_name} password")
+                    app_password = input()
 
-                #     save_credentials(create_credentials(app_name, app_username, app_password))
+                    save_credentials(create_credentials(app_name, app_username, app_password))
                     
-                #     print(f"New Credentials for \n appname:{app_name} \n username:{app_username} \npassword:{app_password}  have been created")
-                
+                    print(f"New Credentials for \n appname:{app_name} \n username:{app_username} \npassword:{app_password}  have been created")
+                    break
                 # elif has_password == 'N':
                
                 #     print("Would you like a system generated password? (T/F)")
